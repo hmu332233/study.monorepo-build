@@ -9,10 +9,14 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../../dist/client')));
 
 app.get('*', (req, res) => {
+  const initialData = {
+    userName: 'Minung Han',
+  };
+
   const {
     html,
     head: { title, htmlAttrs, link, meta },
-  } = render(req.url, fileManifest);
+  } = render(req.url, initialData);
 
   res.set('content-type', 'text/html');
   res.send(`
@@ -29,6 +33,9 @@ app.get('*', (req, res) => {
         </head>
         <body>
           <div id="root">${html}</div>
+          <script>
+			      window.__INITIAL_DATA__ = ${JSON.stringify(initialData)};
+		      </script>
           <script src="${fileManifest['main.js']}"></script>
         </body>
       </html>

@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 
 import MainPage from './pages/MainPage';
 
-const App = () => {
+const App = (props) => {
   return (
-    <MainPage />
+    <MainPage {...props} />
     // <Routes>
     //   <Route path="*" element={() => <h1>Admin App</h1>} />
     // </Routes>

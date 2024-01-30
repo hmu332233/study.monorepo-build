@@ -69,7 +69,7 @@ const serverConfig = {
   output: {
     path: path.resolve(dirname, 'dist/server'),
     publicPath: `/`,
-    filename: '[name].[contenthash].js',
+    filename: '[name].js',
     libraryTarget: 'commonjs2',
   },
   resolve: {
